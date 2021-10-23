@@ -25,7 +25,10 @@ jobs:
     - name: npm install and build webpack
       uses: actions/setup-node@v2
       with:
-        node-version: ${{ matrix.node-version }}
+      - uses: actions/upload-artifact@master
+        with:
+          name: webpack artifacts
+          path: public/
         cache: 'npm'
     - run: |
         npm install
